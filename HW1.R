@@ -220,6 +220,12 @@ x <- Casestudy2 %>%
   summarize(Male = sum(Male),
             Female = sum(Female))
 
+x <- x %>%
+  mutate(More = x$Male > x$Female)
+
+x$More <- as.character(x$More)
+x$More <- str_replace(x$More, 'FALSE', 'Female')
+x$More <- str_replace(x$More, 'TRUE','Male')
 #Case Study 2 [3.2] --------------------------
 ggplot(Casestudy2%>%
          filter(Year == 2015) %>%
@@ -248,6 +254,16 @@ ggplot(Casestudy2%>%
   labs(title = "Non-S&E compared to S&E", subtitle = "Males in sciences related fields in 2015") +
   ggthemes::theme_economist() +
   facet_wrap(vars(Sex))
+
+Casestudy2 %>%
+  filter(Field %in% c("Computer sciences", "Mathematics and statistics")) %>%
+  ggplot() +
+  aes(x = Field, y = Number, fill = Sex) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  scale_fill_brewer(palette = "RdGy") +
+  coord_flip() +
+  ggthemes::theme_economist()
 
 #Non-S&E
 Casestudy2 %>%
@@ -305,6 +321,75 @@ left_join(Casestudy3,Casestudy3a, by = "Year") %>%
   select(!Team.name.2014.y)
 
 # THE CODE FROM CLASS -----------------------
+PayrollKey <- Casestudy3wide %>%   # first create variable: payroll and year
+  select(Team.name.2014, p1998:p2014) %>%
+  mutate(`Diff1998-1999` = p1999 - p1998,
+         `Diff1999-2000` = p2000 - p1999,
+         `Diff2001-2002` = p2001 - p2000,
+         `Diff2002-2003` = p2003 - p2002,
+         `Diff2003-2004` = p2004 - p2003,
+         `Diff2005-2004` = p2005 - p2004,
+         `Diff2006-2005` = p2006 - p2005,
+         `Diff2007-2006` = p2007 - p2006,
+         `Diff2008-2007` = p2008 - p2007,
+         `Diff2009-2008` = p2009 - p2008,
+         `Diff2010-2009` = p2010 - p2009,
+         `Diff2011-2010` = p2011 - p2010,
+         `Diff2012-2011` = p2012 - p2011,
+         `Diff2013-2012` = p2013 - p2012,
+         `Diff2014-2013` = p2014 - p2013)
+
+payrollDiff <- Casestudy3wide %>%   # first create variable: payroll and year
+  select(Team.name.2014, p1998:p2014) %>%
+  mutate(Diff1998 = p1999 - p1998,
+         Diff1999 = p2000 - p1999,
+         Diff2001 = p2001 - p2000,
+         Diff2002 = p2003 - p2002,
+         Diff2003 = p2004 - p2003,
+         Diff2005 = p2005 - p2004,
+         Diff2006 = p2006 - p2005,
+         Diff2007 = p2007 - p2006,
+         Diff2008 = p2008 - p2007,
+         Diff2009 = p2009 - p2008,
+         Diff2010 = p2010 - p2009,
+         Diff2011 = p2011 - p2010,
+         Diff2012 = p2012 - p2011,
+         Diff2013 = p2013 - p2012,
+         Diff2014 = p2014 - p2013)
+
+
+payrollDiff <- payrollDiff %>%
+  select(Team.name.2014, Diff1998:Diff2014) %>%
+  pivot_longer(cols = starts_with("Diff"),
+               names_to = "year",
+               names_prefix = "Diff",
+               values_to = "Difference")
+
+logpayrollDiff <- Casestudy3wide %>%   # first create variable: payroll and year
+  select(Team.name.2014, p1998:p2014) %>%
+  mutate(Diff1998 = log(p1999) - log(p1998),
+         Diff1999 = log(p2000) - log(p1999),
+         Diff2001 = log(p2001) - log(p2000),
+         Diff2002 = log(p2003) - log(p2002),
+         Diff2003 = log(p2004) - log(p2003),
+         Diff2005 = log(p2005) - log(p2004),
+         Diff2006 = log(p2006) - log(p2005),
+         Diff2007 = log(p2007) - log(p2006),
+         Diff2008 = log(p2008) - log(p2007),
+         Diff2009 = log(p2009) - log(p2008),
+         Diff2010 = log(p2010) - log(p2009),
+         Diff2011 = log(p2011) - log(p2010),
+         Diff2012 = log(p2012) - log(p2011),
+         Diff2013 = log(p2013) - log(p2012),
+         Diff2014 = log(p2014) - log(p2013))
+
+logpayrollDiff <- logpayrollDiff %>%
+  select(Team.name.2014, Diff1998:Diff2014) %>%
+  pivot_longer(cols = starts_with("Diff"),
+               names_to = "year",
+               names_prefix = "Diff",
+               values_to = "Log_Difference")
+
 payroll <- Casestudy3wide %>%   # first create variable: payroll and year
   select(Team.name.2014, p1998:p2014) %>% 
   pivot_longer(cols = starts_with("p"), 
@@ -333,6 +418,30 @@ win_pct <- Casestudy3wide %>%  # create variable: win_pct and year
 # join tables into team, year, payrow, win_num, win_pct
 Casestudy3wide_long <- payroll %>% 
   inner_join(win_num, by = c("Team.name.2014", "year")) %>%
-  inner_join(win_pct, by = c("Team.name.2014", "year")) 
+  inner_join(win_pct, by = c("Team.name.2014", "year")) %>%
+  inner_join(payrollDiff, by = c("Team.name.2014", "year")) %>%
+  inner_join(logpayrollDiff, by = c("Team.name.2014", "year")) %>%
+  rename(Payrole_Diff = Difference,
+         Log_Payrole_Diff = Log_Difference)
 
 head(Casestudy3wide_long, 2)  # see first 2 rows
+
+
+#Summary Statistics ---------------------
+Casestudy3wide_long%>%
+  filter(year == 2010:2014) %>%
+  group_by(Team.name.2014) %>%
+  summarize(Change_Payroll = sum(Log_Payrole_Diff),
+            Wins = sum(win_num),
+            Wins_Pct = mean(win_pct)) %>%
+  arrange(desc(Change_Payroll))
+
+#PLOTS --------------------------
+f <- Casestudy3wide_long %>% 
+  ggplot(aes(x = year, y = Log_Payrole_Diff, group = Team.name.2014, col = Team.name.2014)) + 
+  geom_line() + 
+  geom_point() +
+  theme_bw() 
+
+ggplotly(f +
+           theme(legend.position = "none"))
