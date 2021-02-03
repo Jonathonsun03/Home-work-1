@@ -1,0 +1,521 @@
+---
+title: "Homework1"
+author: "Jonathon Sun"
+date: "1/27/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(tidyverse)
+library(ggplot2)
+library(plotly)
+library(formattable)
+
+options(scipen=999)
+```
+
+# Case Study 1: Audience Size 
+
+### Executive Summary
+The intent of this executive summary is to answer two questions.
+
+1. Who listens to Sirius Radio?
+1. Who listens to Sirius Business Radio by Wharton?
+1. Does this samples appear to be a random sample from the general population?
+1. Does this sample appear to be a random sample from the MTURK population?
+
+Based on the responses of these answers we move forward with the following implications.
+
+1. What method should be utilized to estimate the audience size?
+1. what data should be collected and where should it come from?
+
+The variables that were selected for analysis were, age, education, gender, income, sirius, wharton, and worktime. Survey questions that did not have a response were recoded to NA. Survey questions that were input in the incorrect format, were changed to be in the appropriate format. For example, age should have been a numeric input; however, some respondents wrote out their age that being 'eighteen' rather than 18. Other examples of incorrect information includes typing 223. The age 223, is far beyond the life span of a normal human. It cannot be assumed that the individual intended to type 22, 23, or 32. As such, this response was changed to NA.   
+
+```{r include=FALSE}
+dataset <- read.csv("E:/Documents/Penn-One-Drive/OneDrive - PennO365/2020-2021/SP/Datamining/Home work 1/data/Survey_results_final.csv", 
+                    na.strings =  c(""))
+
+datasetClean <- dataset %>%
+  select(starts_with("answer.") | contains("worktime")) %>%
+  rename(Age = Answer.Age,
+         Education = Answer.Education,
+         Gender = Answer.Gender,
+         Income = Answer.HouseHoldIncome,
+         Sirius = Answer.Sirius.Radio,
+         Wharton = Answer.Wharton.Radio,
+         Worktime = WorkTimeInSeconds)
+
+datasetClean$Education <- str_remove(datasetClean$Education, "â€™")
+#Age cleaning -----------------------------
+AgeUnique <- unique(datasetClean$Age)
+
+x <- which(grepl(AgeUnique[53], datasetClean$Age))
+datasetClean$Age[x] <- NA
+
+x <- which(grepl('Eighteen', datasetClean$Age))
+datasetClean$Age[x] <- 18
+
+x <- which(grepl(AgeUnique[58], datasetClean$Age))
+datasetClean$Age[x] <- 27
+
+x <- which(grepl(AgeUnique[51], datasetClean$Age))
+datasetClean$Age[x] <- 27
+
+unique(datasetClean$Age)
+
+datasetClean <- datasetClean %>% 
+  filter(grepl("[[:digit:]]",Age))
+
+
+datasetClean$Age <- as.numeric(datasetClean$Age)
+
+#Education level Factor -----------------------
+EducationUnique <- unique(datasetClean$Education)
+EducationUnique <- as.tibble(EducationUnique) %>%
+  filter(!grepl("select one", value)) #This is a description line that we don't need
+EducationUnique$Level <- c(3,5,4,2,1,6)
+EducationUnique <- EducationUnique %>%
+  arrange(Level)
+
+datasetClean <- datasetClean %>%
+  filter(Education %in% EducationUnique$value)
+
+datasetClean$Education <- factor(datasetClean$Education, levels = EducationUnique$value)
+
+#Income Level Factor ------------------------
+IncomeUnique <- unique(na.omit(datasetClean$Income))
+IncomeUnique <- as.tibble(IncomeUnique)
+IncomeUnique$Level <- c("3","2","4","6","1","5")
+IncomeUnique <- IncomeUnique %>%
+  arrange(Level)
+datasetClean <- datasetClean %>%
+  filter(Income %in% IncomeUnique$value)
+
+datasetClean$Income <- factor(datasetClean$Income, levels = IncomeUnique$value)
+
+#Shared Audience
+Shared <- datasetClean %>%
+  filter(Sirius == "Yes" & Wharton == "Yes")
+```
+### Summary Tables
+
+1. Who listens to Sirius Radio?
+1. Who listens to Sirius Business Radio by Wharton?
+1. Does this samples appear to be a random sample from the general population?
+1. Does this sample appear to be a random sample from the MTURK population?
+
+The first four questions can be responded to by analyzing the following figures.
+
+#### Educational attainment
+
+The summary table is split by educational attainment and shows that most listeners have some college diploma or has a bachelor's degree. For the individuals who own a bachelor's degree, the average age of the listener is 28.5 while the median is 26. For individuals who hold a bachelors degree, the mean age is 31.14 while the median is 28.
+
+```{r echo=FALSE, message=FALSE, warning=TRUE}
+x <-  na.omit(datasetClean) %>%
+  group_by(Education) %>%
+  summarize(Frequency = n(),
+            Mean_Age = mean(Age),
+            Median_Age = median(Age),
+            Mean_Worktime = mean(Worktime),
+            Median_Worktime = median(Worktime))
+
+formattable(x, align = c("l","c","c","c","c"),
+            list(`Education` = formatter("span", style = ~ style(color = "grey", font.weight = "bold")),
+                 'Frequency' = color_tile("white", "green")))
+```
+
+#### Age
+For a closer look at the age of listeners a frequency table has been included to show the gender breakdown with the mean and median age of male and female listeners.
+```{r echo=FALSE, message=FALSE, warning=TRUE}
+
+x <- na.omit(datasetClean) %>%
+  group_by(Gender) %>%
+  summarize(Frequency = n(),
+            Mean_Age = mean(Age),
+            Median_Age = median(Age),
+            Mean_Worktime = mean(Worktime),
+            Median_Worktime = median(Worktime))
+
+formattable(x, align = c("l","c","c","c","c"),
+            list(`Gender` = formatter("span", style = ~ style(color = "grey", font.weight = "bold")),
+                 'Frequency' = color_tile("white", "green")))
+```
+
+Histogram of age which is split by gender and income also show the breakdown of age.
+```{r echo=FALSE, fig.width = 10}
+ggplotly(ggplot(na.omit(datasetClean)) +
+ aes(x = Age, fill = Income) +
+ geom_histogram(bins = 30L) +
+ scale_fill_hue() +
+ labs(title = "Age by Income") +
+ theme_minimal() +
+ facet_wrap(vars(Gender)))
+```
+
+#### Income
+```{r echo=FALSE, message=FALSE, warning=TRUE}
+
+x <- na.omit(datasetClean) %>%
+  group_by(Income) %>%
+  summarize(Frequency = n(),
+            Mean_Age = mean(Age),
+            Median_Age = median(Age),
+            Mean_Worktime = mean(Worktime),
+            Median_Worktime = median(Worktime))
+
+formattable(x, align = c("l","c","c","c","c"),
+            list(`Income` = formatter("span", style = ~ style(color = "grey", font.weight = "bold")),
+                 'Frequency' = color_tile("white", "green")))
+
+```
+
+#### Wharton and Sirius?
+__Box Plots__
+
+The box plot, below faceted by educational attainment and income and specifically describes the users who listen to both Wharton radio and Sirius radio. Each of the boxplots are split by gender and describe the age of each listener by gender.
+
+```{r, echo = FALSE, fig.width = 24, fig.height = 14}
+ggplot(Shared) +
+  aes(x = Income, y = Age, fill = Gender) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  theme_minimal() +
+  facet_wrap(vars(Education)) +
+  theme(strip.text.x = element_text(size = 18, face = "bold"),
+    text = element_text(size = 18, face = "bold"))
+```
+
+### Conclusion: Who listens to Wharton Radio?
+Based on the charts above, the age of the average listeners tends to be mid 20's to early 30's. Usually they will have some educational background of some sort and more often tend to be male than female. Generally these individuals will be making $30,000 - $50,000 a year. Knowing the general audience base, the next two questions can be responded to.
+
+1. What method should be utilized to estimate the audience size?
+1. what data should be collected and where should it come from?
+
+__Method for estimating Audience Size?__
+
+
+__What data should be collected and where should it come from?__
+Rather than administering dat from MTURK, a more direct approach to listener base can be found by pulling data from stitcher which has been aquired by Sirius XM. This data may provide more specific ...
+
+# Case Study 2: Women in Science
+
+**Questions**
+
+1. How many fields?
+1. type of degrees?
+1. years of statistics being reported
+
+In this data set there are 10 different fields of study, 3 different degree levels and 11 years worth of data from 2006 - 2016. This can be seen in the summary tables below. 
+
+```{r include=FALSE}
+
+library(readxl)
+Casestudy2 <- read_excel("E:/Documents/Penn-One-Drive/OneDrive - PennO365/2020-2021/SP/Datamining/Home work 1/data/WomenData_06_16.xlsx")
+
+head(Casestudy2)
+Casestudy2 <- Casestudy2 %>%
+  rename("Field" = "Field and sex",
+         "Number" = "Degrees Awarded") 
+
+Casestudy2 <- Casestudy2 %>%
+  mutate('S&E' = Casestudy2$Field == 'Non-S&E')
+
+Casestudy2 <- Casestudy2 %>%
+  mutate('S&E' = as.character(Casestudy2$`S&E`))
+Casestudy2$`S&E` <- str_replace(Casestudy2$`S&E`, 'FALSE', 'S&E')
+Casestudy2$`S&E`<- str_replace(Casestudy2$`S&E`, 'TRUE', 'Non-S&E')
+Casestudy2$Degree <- factor(Casestudy2$Degree)
+Casestudy2$Year <- factor(Casestudy2$Year)
+
+Casestudy2%>%
+  group_by(Field, Degree)%>%
+  summarize(Total = sum(Number))
+
+Casestudy2%>%
+  group_by(Year)%>%
+  summarize(Total = sum(Number))
+
+Casestudy2%>%
+  group_by(Sex, Field)%>%
+  summarize(Total = sum(Number))
+
+
+
+```
+
+__By Field and Sex__
+
+
+This table shows that 10 different fields of study and the total amount of Male and Female people who studied the field. Overall looking at the 10 fields, there is an even breakdown of Female dominated fields to Male dominated fields. 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+x <- Casestudy2 %>%
+  pivot_wider(names_from = Sex, values_from = "Number") %>%
+  group_by(Field) %>%
+  summarize(Male = sum(Male),
+            Female = sum(Female))
+
+x <- x %>%
+  mutate(More = x$Male > x$Female)
+
+x$More <- as.character(x$More)
+x$More <- str_replace(x$More, 'FALSE', 'Female')
+x$More <- str_replace(x$More, 'TRUE','Male')
+x$More <- as.factor(x$More)
+
+formattable(x, align = c("l"),
+            list(`Field` = formatter("span", style = ~ style(color = "grey", font.weight = "bold")),
+                 `Male` = color_tile("white", "green"),
+                 `Female` = color_tile("white","red"),
+                 `More` = color_tile("red","green")))
+```
+
+__By Degree and Sex__
+
+
+This table shows the 3 different types of degrees over the course of 11 years with sex being broken down. The data shows that although there are more female people collectively receiving Bachelors degrees and Masters degrees, Male people attain more Ph.Ds. 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+x <- Casestudy2 %>%
+  pivot_wider(names_from = Sex, values_from = "Number") %>%
+  group_by(Degree) %>%
+  summarize(Male = sum(Male),
+            Female = sum(Female))
+
+x <- x %>%
+  mutate(More = x$Male > x$Female)
+
+x$More <- as.character(x$More)
+x$More <- str_replace(x$More, 'FALSE', 'Female')
+x$More <- str_replace(x$More, 'TRUE','Male')
+x$More <- as.factor(x$More)
+
+formattable(x, align = c("l"),
+            list(`Deegree` = formatter("span", style = ~ style(color = "grey", font.weight = "bold")),
+                 `Male` = color_tile("white", "green"),
+                 `Female` = color_tile("white","red"),
+                 `More` = color_tile("red","green")))
+```
+
+__By Year and Sex__
+
+
+Finally the last table shows the amount of degrees attained each year by male and females. Showing that overall, female people overall earn more degrees and that there has been a stead increase of degrees over time.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+x <- Casestudy2 %>%
+  pivot_wider(names_from = Sex, values_from = "Number") %>%
+  group_by(Year) %>%
+  summarize(Male = sum(Male),
+            Female = sum(Female))
+
+x <- x %>%
+  mutate(More = x$Male > x$Female)
+
+x$More <- as.character(x$More)
+x$More <- str_replace(x$More, 'FALSE', 'Female')
+x$More <- str_replace(x$More, 'TRUE','Male')
+x$More <- as.factor(x$More)
+
+formattable(x, align = c("l"),
+            list(`Year` = formatter("span", style = ~ style(color = "grey", font.weight = "bold")),
+                 `Male` = color_tile("white", "green"),
+                 `Female` = color_tile("white","red"),
+                 `More` = color_tile("green","red")))
+```
+
+
+### BS degrees in 2015
+The summary statistics tables above are high level summaries. To understand the breakdown of science related fields vs non-science fields in 2015, separate bar plots have been made.
+
+__2015 Overall Science and Engineering__
+This bar plot shows the breakdown of science and engineering fields and compares them to the broader category of non-science and engineering fields.
+```{r echo=FALSE, fig.width = 10}
+ggplot(Casestudy2%>%
+         filter(Year == 2015)) +
+  aes(x = `S&E`, fill = Sex, weight = Number) +
+  geom_bar() +
+  scale_fill_brewer(palette = "RdGy") +
+  labs(title = "Non-S&E compared to S&E", subtitle = "Males in sciences related fields in 2015") +
+  ggthemes::theme_economist() +
+  facet_wrap(vars(Degree))
+```
+
+To show the difference in sex between Non-science and engineering fields and science and engineering fields in 2015 the following bar plot has been made. As the tables above show generally there are more woman obtaining degrees, which is highlighted by the larger Non-S&E bar. However; despite when comparing S&E, the bar for Male and Female, are almost similar in frequency.
+
+
+```{r echo=FALSE, fig.width = 10, message = FALSE}
+ggplot(Casestudy2%>%
+         filter(Year == 2015)) +
+  aes(x = `S&E`, fill = Degree, weight = Number) +
+  geom_bar() +
+  scale_fill_brewer(palette = "RdGy") +
+  labs(title = "Non-S&E compared to S&E", subtitle = "Males in sciences related fields in 2015") +
+  ggthemes::theme_economist() +
+  facet_wrap(vars(Sex))
+```
+
+
+**Questions**
+
+In general, the summary tables show that there female people are overall earning more degrees; however, when broken down by science-related fields Female people generally study, social sciences, psychology, biology, and agricultural sciences. Male people study physical sciences, mathematics and statistics, engineering, earth, atmospheric, and ocean sciences, and computer Science. This can be found in the box plot below. This is consistent with literature that shows that these fields are often not inclusive of woman, and in particular women of color.
+
+```{r echo=FALSE, fig.width = 10, warning=FALSE, message = FALSE}
+Casestudy2 %>%
+  filter(!Field %in% c("Non-S&E")) %>%
+  ggplot() +
+  aes(x = Field, y = Number, fill = Sex) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  scale_fill_brewer(palette = "RdGy") +
+  coord_flip() +
+  ggthemes::theme_economist()
+```
+To see if woman are in the field of data science, the plot has been filtered to only include, computer science, math and statistics. Despite the foundations that woman have established in the fields of mathematics, statistics and computer science, woman are underrepresented in both fields. 
+```{r echo=FALSE, fig.width = 10, warning=FALSE, message = FALSE}
+Casestudy2 %>%
+  filter(Field %in% c("Computer sciences", "Mathematics and statistics")) %>%
+  ggplot() +
+  aes(x = Field, y = Number, fill = Sex) +
+  geom_boxplot() +
+  scale_fill_hue() +
+  scale_fill_brewer(palette = "RdGy") +
+  coord_flip() +
+  ggthemes::theme_economist()
+```
+
+
+### All Variables
+
+# Case Study 3: Major League Baseball
+
+```{r include=FALSE}
+Casestudy3wide <- read.csv("E:/Documents/Penn-One-Drive/OneDrive - PennO365/2020-2021/SP/Datamining/Home work 1/data/MLPayData_Total.csv", 
+                         na.strings =  c(""))  
+
+payrollDiff <- Casestudy3wide %>%   # first create variable: payroll and year
+  select(Team.name.2014, p1998:p2014) %>%
+  mutate(Diff1998 = p1999 - p1998,
+         Diff1999 = p2000 - p1999,
+         Diff2001 = p2001 - p2000,
+         Diff2002 = p2003 - p2002,
+         Diff2003 = p2004 - p2003,
+         Diff2005 = p2005 - p2004,
+         Diff2006 = p2006 - p2005,
+         Diff2007 = p2007 - p2006,
+         Diff2008 = p2008 - p2007,
+         Diff2009 = p2009 - p2008,
+         Diff2010 = p2010 - p2009,
+         Diff2011 = p2011 - p2010,
+         Diff2012 = p2012 - p2011,
+         Diff2013 = p2013 - p2012,
+         Diff2014 = p2014 - p2013)
+
+
+payrollDiff <- payrollDiff %>%
+  select(Team.name.2014, Diff1998:Diff2014) %>%
+  pivot_longer(cols = starts_with("Diff"),
+               names_to = "year",
+               names_prefix = "Diff",
+               values_to = "Difference")
+
+logpayrollDiff <- Casestudy3wide %>%   # first create variable: payroll and year
+  select(Team.name.2014, p1998:p2014) %>%
+  mutate(Diff1998 = log(p1999) - log(p1998),
+         Diff1999 = log(p2000) - log(p1999),
+         Diff2001 = log(p2001) - log(p2000),
+         Diff2002 = log(p2003) - log(p2002),
+         Diff2003 = log(p2004) - log(p2003),
+         Diff2005 = log(p2005) - log(p2004),
+         Diff2006 = log(p2006) - log(p2005),
+         Diff2007 = log(p2007) - log(p2006),
+         Diff2008 = log(p2008) - log(p2007),
+         Diff2009 = log(p2009) - log(p2008),
+         Diff2010 = log(p2010) - log(p2009),
+         Diff2011 = log(p2011) - log(p2010),
+         Diff2012 = log(p2012) - log(p2011),
+         Diff2013 = log(p2013) - log(p2012),
+         Diff2014 = log(p2014) - log(p2013))
+
+logpayrollDiff <- logpayrollDiff %>%
+  select(Team.name.2014, Diff1998:Diff2014) %>%
+  pivot_longer(cols = starts_with("Diff"),
+               names_to = "year",
+               names_prefix = "Diff",
+               values_to = "Log_Difference")
+
+payroll <- Casestudy3wide %>%   # first create variable: payroll and year
+  select(Team.name.2014, p1998:p2014) %>% 
+  pivot_longer(cols = starts_with("p"), 
+               names_to = "year", 
+               names_prefix = "p",
+               values_to = "payroll")
+payroll[1:3, 1:3] # show a few rows
+
+win_num <- Casestudy3wide %>%  # create variable: win_num and year
+  select(Team.name.2014, X1998:X2014) %>% 
+  pivot_longer(cols = X1998:X2014,
+               names_to = "year", 
+               names_prefix = "X",
+               values_to = "win_num")
+#win_num[1:3, 1:3]
+
+win_pct <- Casestudy3wide %>%  # create variable: win_pct and year
+  select(Team.name.2014, X1998.pct:X2014.pct) %>% 
+  pivot_longer(cols = X1998.pct:X2014.pct,
+               names_to = "year",
+               names_prefix = "X", 
+               values_to = "win_pct") %>%
+  mutate(year = substr(year, 1, 4))
+#win_pct[1:3, 1:3]
+
+# join tables into team, year, payrow, win_num, win_pct
+Casestudy3wide_long <- payroll %>% 
+  inner_join(win_num, by = c("Team.name.2014", "year")) %>%
+  inner_join(win_pct, by = c("Team.name.2014", "year")) %>%
+  inner_join(payrollDiff, by = c("Team.name.2014", "year")) %>%
+  inner_join(logpayrollDiff, by = c("Team.name.2014", "year"))
+
+Casestudy3wide_long <- Casestudy3wide_long %>%
+  rename(Payrole_Diff = Difference,
+         Log_Payrole_Diff = Log_Difference,
+         Team = Team.name.2014)
+
+head(Casestudy3wide_long, 2)  # see first 2 rows
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+f <- Casestudy3wide_long%>%
+  filter(year == 2010:2014) %>%
+  group_by(Team) %>%
+  summarize(Change_Payrole = sum(Log_Payrole_Diff),
+            Payrole = mean(payroll),
+            Wins = sum(win_num),
+            Wins_Pct = mean(win_pct)) %>%
+  arrange(desc(Change_Payrole)) %>%
+  head(5)
+
+formattable(f, align = c("l", rep("r", NCOL(f) - 1)),
+            list(`Team` = formatter("span", style = ~ style(color = "grey", font.weight = "bold"))))
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+f <- Casestudy3wide_long %>% 
+  ggplot(aes(x = year, y = Log_Payrole_Diff, group = Team, col = Team)) + 
+  geom_line() + 
+  geom_point() +
+  theme_bw() 
+
+ggplotly(f +
+           theme(legend.position = "none"))
+```
+
+### Yearly payroll or yearly increase in payroll
+
+```{r}
+
+

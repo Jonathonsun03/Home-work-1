@@ -1,0 +1,511 @@
+"team","year","payroll","win_num","win_pct"
+"Arizona Diamondbacks","1998",31.6145,65,0.401234568
+"Arizona Diamondbacks","1999",70.496,100,0.617283951
+"Arizona Diamondbacks","2000",81.027833,85,0.524691358
+"Arizona Diamondbacks","2001",81.206513,92,0.567901235
+"Arizona Diamondbacks","2002",102.82,98,0.604938272
+"Arizona Diamondbacks","2003",80.640333,84,0.518518519
+"Arizona Diamondbacks","2004",70.204984,51,0.314814815
+"Arizona Diamondbacks","2005",63.015834,77,0.475308642
+"Arizona Diamondbacks","2006",59.684226,76,0.469135802
+"Arizona Diamondbacks","2007",52.067546,90,0.555555556
+"Arizona Diamondbacks","2008",66.202712,82,0.50617284
+"Arizona Diamondbacks","2009",73.571667,70,0.432098765
+"Arizona Diamondbacks","2010",60.718167,65,0.401234568
+"Arizona Diamondbacks","2011",53.639833,94,0.580246914
+"Arizona Diamondbacks","2012",74.284833,81,0.5
+"Arizona Diamondbacks","2013",89.1005,81,0.5
+"Arizona Diamondbacks","2014",112.688666,64,0.395061728
+"Atlanta Braves","1998",61.708,106,0.654320988
+"Atlanta Braves","1999",74.89,103,0.635802469
+"Atlanta Braves","2000",84.537836,95,0.586419753
+"Atlanta Braves","2001",91.851687,88,0.543209877
+"Atlanta Braves","2002",93.470367,101,0.63125
+"Atlanta Braves","2003",106.243667,101,0.62345679
+"Atlanta Braves","2004",88.507788,96,0.592592593
+"Atlanta Braves","2005",85.148582,90,0.555555556
+"Atlanta Braves","2006",90.156876,79,0.487654321
+"Atlanta Braves","2007",87.290833,84,0.518518519
+"Atlanta Braves","2008",102.365683,72,0.444444444
+"Atlanta Braves","2009",96.726167,86,0.530864198
+"Atlanta Braves","2010",84.423667,91,0.561728395
+"Atlanta Braves","2011",87.003192,89,0.549382716
+"Atlanta Braves","2012",83.309942,94,0.580246914
+"Atlanta Braves","2013",89.778192,96,0.592592593
+"Atlanta Braves","2014",110.897341,79,0.487654321
+"Baltimore Orioles","1998",71.860921,79,0.487654321
+"Baltimore Orioles","1999",72.198363,78,0.481481481
+"Baltimore Orioles","2000",81.447435,74,0.456790123
+"Baltimore Orioles","2001",72.426328,63,0.391304348
+"Baltimore Orioles","2002",60.493487,67,0.413580247
+"Baltimore Orioles","2003",73.8775,71,0.438271605
+"Baltimore Orioles","2004",51.212653,78,0.481481481
+"Baltimore Orioles","2005",74.570539,74,0.456790123
+"Baltimore Orioles","2006",72.585582,70,0.432098765
+"Baltimore Orioles","2007",93.554808,69,0.425925926
+"Baltimore Orioles","2008",67.196246,68,0.422360248
+"Baltimore Orioles","2009",67.101667,64,0.395061728
+"Baltimore Orioles","2010",81.6125,66,0.407407407
+"Baltimore Orioles","2011",85.304038,69,0.425925926
+"Baltimore Orioles","2012",81.428999,93,0.574074074
+"Baltimore Orioles","2013",90.993333,85,0.524691358
+"Baltimore Orioles","2014",107.406623,96,0.592592593
+"Boston Red Sox","1998",59.497,92,0.567901235
+"Boston Red Sox","1999",71.725,94,0.580246914
+"Boston Red Sox","2000",77.940333,85,0.524691358
+"Boston Red Sox","2001",109.558908,82,0.50931677
+"Boston Red Sox","2002",108.36606,93,0.574074074
+"Boston Red Sox","2003",99.9465,95,0.586419753
+"Boston Red Sox","2004",125.208542,98,0.604938272
+"Boston Red Sox","2005",121.311945,95,0.586419753
+"Boston Red Sox","2006",120.099824,86,0.530864198
+"Boston Red Sox","2007",143.026214,96,0.592592593
+"Boston Red Sox","2008",133.390035,95,0.586419753
+"Boston Red Sox","2009",122.696,95,0.586419753
+"Boston Red Sox","2010",162.747333,89,0.549382716
+"Boston Red Sox","2011",161.407476,90,0.555555556
+"Boston Red Sox","2012",173.186617,69,0.425925926
+"Boston Red Sox","2013",150.6555,97,0.598765432
+"Boston Red Sox","2014",162.817411,71,0.438271605
+"Chicago Cubs","1998",49.816,90,0.552147239
+"Chicago Cubs","1999",42.142761,67,0.413580247
+"Chicago Cubs","2000",60.539333,65,0.401234568
+"Chicago Cubs","2001",64.015833,88,0.543209877
+"Chicago Cubs","2002",75.690833,67,0.413580247
+"Chicago Cubs","2003",79.868333,88,0.543209877
+"Chicago Cubs","2004",91.101667,89,0.549382716
+"Chicago Cubs","2005",87.210933,79,0.487654321
+"Chicago Cubs","2006",94.424499,66,0.407407407
+"Chicago Cubs","2007",99.670332,85,0.524691358
+"Chicago Cubs","2008",118.345833,97,0.602484472
+"Chicago Cubs","2009",135.05,83,0.51552795
+"Chicago Cubs","2010",146.859,75,0.462962963
+"Chicago Cubs","2011",125.480664,71,0.438271605
+"Chicago Cubs","2012",88.197033,61,0.37654321
+"Chicago Cubs","2013",104.304676,66,0.407407407
+"Chicago Cubs","2014",89.007857,73,0.450617284
+"Chicago White Sox","1998",35.18,80,0.49382716
+"Chicago White Sox","1999",24.535,75,0.465838509
+"Chicago White Sox","2000",31.1335,95,0.586419753
+"Chicago White Sox","2001",62.363,83,0.512345679
+"Chicago White Sox","2002",57.052833,81,0.5
+"Chicago White Sox","2003",51.01,86,0.530864198
+"Chicago White Sox","2004",65.2125,83,0.512345679
+"Chicago White Sox","2005",75.228,99,0.611111111
+"Chicago White Sox","2006",102.750667,90,0.555555556
+"Chicago White Sox","2007",108.671833,72,0.444444444
+"Chicago White Sox","2008",121.189332,89,0.54601227
+"Chicago White Sox","2009",96.0685,79,0.487654321
+"Chicago White Sox","2010",108.273197,88,0.543209877
+"Chicago White Sox","2011",129.285539,79,0.487654321
+"Chicago White Sox","2012",96.9195,85,0.524691358
+"Chicago White Sox","2013",119.073277,63,0.388888889
+"Chicago White Sox","2014",91.159254,73,0.450617284
+"Cincinnati Reds","1998",20.707333,77,0.475308642
+"Cincinnati Reds","1999",73.278458,96,0.588957055
+"Cincinnati Reds","2000",46.8672,85,0.524691358
+"Cincinnati Reds","2001",45.227882,66,0.407407407
+"Cincinnati Reds","2002",45.05039,78,0.481481481
+"Cincinnati Reds","2003",59.355667,69,0.425925926
+"Cincinnati Reds","2004",43.067858,76,0.469135802
+"Cincinnati Reds","2005",59.658275,73,0.450617284
+"Cincinnati Reds","2006",60.909519,80,0.49382716
+"Cincinnati Reds","2007",68.90498,72,0.444444444
+"Cincinnati Reds","2008",74.117695,74,0.456790123
+"Cincinnati Reds","2009",70.9685,78,0.481481481
+"Cincinnati Reds","2010",72.386544,91,0.561728395
+"Cincinnati Reds","2011",76.181365,79,0.487654321
+"Cincinnati Reds","2012",82.203616,97,0.598765432
+"Cincinnati Reds","2013",107.491305,90,0.555555556
+"Cincinnati Reds","2014",112.390772,76,0.469135802
+"Cleveland Indians","1998",59.543165,89,0.549382716
+"Cleveland Indians","1999",54.442505,97,0.598765432
+"Cleveland Indians","2000",75.880871,90,0.555555556
+"Cleveland Indians","2001",91.974979,91,0.561728395
+"Cleveland Indians","2002",78.909448,74,0.456790123
+"Cleveland Indians","2003",48.584834,68,0.419753086
+"Cleveland Indians","2004",34.5693,80,0.49382716
+"Cleveland Indians","2005",41.8304,93,0.574074074
+"Cleveland Indians","2006",56.0315,78,0.481481481
+"Cleveland Indians","2007",61.673267,96,0.592592593
+"Cleveland Indians","2008",78.970066,81,0.5
+"Cleveland Indians","2009",81.625567,65,0.401234568
+"Cleveland Indians","2010",61.203967,69,0.425925926
+"Cleveland Indians","2011",49.188867,80,0.49382716
+"Cleveland Indians","2012",78.4303,68,0.419753086
+"Cleveland Indians","2013",77.7728,92,0.567901235
+"Cleveland Indians","2014",82.5348,85,0.524691358
+"Colorado Rockies","1998",47.714648,77,0.475308642
+"Colorado Rockies","1999",55.4435,72,0.444444444
+"Colorado Rockies","2000",61.11119,82,0.50617284
+"Colorado Rockies","2001",71.068,73,0.450617284
+"Colorado Rockies","2002",56.851043,73,0.450617284
+"Colorado Rockies","2003",67.179667,74,0.456790123
+"Colorado Rockies","2004",64.590403,68,0.419753086
+"Colorado Rockies","2005",47.789,67,0.413580247
+"Colorado Rockies","2006",41.233,76,0.469135802
+"Colorado Rockies","2007",54.424,90,0.552147239
+"Colorado Rockies","2008",68.6555,74,0.456790123
+"Colorado Rockies","2009",75.201,92,0.567901235
+"Colorado Rockies","2010",84.227,83,0.512345679
+"Colorado Rockies","2011",87.998071,73,0.450617284
+"Colorado Rockies","2012",78.069571,64,0.395061728
+"Colorado Rockies","2013",71.924071,74,0.456790123
+"Colorado Rockies","2014",95.832071,66,0.407407407
+"Detroit Tigers","1998",19.2375,65,0.401234568
+"Detroit Tigers","1999",34.959667,69,0.428571429
+"Detroit Tigers","2000",58.265167,79,0.487654321
+"Detroit Tigers","2001",49.831167,66,0.407407407
+"Detroit Tigers","2002",55.048,55,0.341614907
+"Detroit Tigers","2003",49.168,43,0.265432099
+"Detroit Tigers","2004",46.353554,72,0.444444444
+"Detroit Tigers","2005",68.998183,71,0.438271605
+"Detroit Tigers","2006",82.612866,95,0.586419753
+"Detroit Tigers","2007",95.180369,88,0.543209877
+"Detroit Tigers","2008",137.685196,74,0.456790123
+"Detroit Tigers","2009",115.085145,86,0.527607362
+"Detroit Tigers","2010",122.864929,81,0.5
+"Detroit Tigers","2011",105.705232,95,0.586419753
+"Detroit Tigers","2012",132.3,88,0.543209877
+"Detroit Tigers","2013",148.4145,93,0.574074074
+"Detroit Tigers","2014",162.228527,90,0.555555556
+"Houston Astros","1998",48.304,102,0.62962963
+"Houston Astros","1999",54.339,97,0.598765432
+"Houston Astros","2000",51.289111,72,0.444444444
+"Houston Astros","2001",60.382667,93,0.574074074
+"Houston Astros","2002",63.448417,84,0.518518519
+"Houston Astros","2003",71.04,87,0.537037037
+"Houston Astros","2004",74.666303,92,0.567901235
+"Houston Astros","2005",76.779022,89,0.549382716
+"Houston Astros","2006",92.551503,82,0.50617284
+"Houston Astros","2007",87.759,73,0.450617284
+"Houston Astros","2008",88.930414,86,0.534161491
+"Houston Astros","2009",102.996415,74,0.456790123
+"Houston Astros","2010",92.3555,76,0.469135802
+"Houston Astros","2011",70.694,56,0.345679012
+"Houston Astros","2012",60.651,55,0.339506173
+"Houston Astros","2013",22.0626,51,0.314814815
+"Houston Astros","2014",44.544174,70,0.432098765
+"Kansas City Royals","1998",35.61,72,0.447204969
+"Kansas City Royals","1999",16.557,64,0.397515528
+"Kansas City Royals","2000",23.433,77,0.475308642
+"Kansas City Royals","2001",35.643,65,0.401234568
+"Kansas City Royals","2002",47.257,62,0.382716049
+"Kansas City Royals","2003",40.518,83,0.512345679
+"Kansas City Royals","2004",47.609,58,0.358024691
+"Kansas City Royals","2005",36.881,56,0.345679012
+"Kansas City Royals","2006",47.294,62,0.382716049
+"Kansas City Royals","2007",67.1165,69,0.425925926
+"Kansas City Royals","2008",58.2455,75,0.462962963
+"Kansas City Royals","2009",70.908333,65,0.401234568
+"Kansas City Royals","2010",72.26771,67,0.413580247
+"Kansas City Royals","2011",36.1264,71,0.438271605
+"Kansas City Royals","2012",60.916225,72,0.444444444
+"Kansas City Royals","2013",81.491725,86,0.530864198
+"Kansas City Royals","2014",92.034345,89,0.549382716
+"Los Angeles Angels","1998",48.389,85,0.524691358
+"Los Angeles Angels","1999",49.868167,70,0.432098765
+"Los Angeles Angels","2000",51.464167,82,0.50617284
+"Los Angeles Angels","2001",46.56818,75,0.462962963
+"Los Angeles Angels","2002",61.721667,99,0.611111111
+"Los Angeles Angels","2003",79.031667,77,0.475308642
+"Los Angeles Angels","2004",101.084667,92,0.567901235
+"Los Angeles Angels","2005",95.017822,95,0.586419753
+"Los Angeles Angels","2006",103.472,89,0.549382716
+"Los Angeles Angels","2007",109.251333,94,0.580246914
+"Los Angeles Angels","2008",119.216333,100,0.617283951
+"Los Angeles Angels","2009",113.709,97,0.598765432
+"Los Angeles Angels","2010",105.013667,80,0.49382716
+"Los Angeles Angels","2011",138.998524,86,0.530864198
+"Los Angeles Angels","2012",154.485166,89,0.549382716
+"Los Angeles Angels","2013",127.89625,78,0.481481481
+"Los Angeles Angels","2014",155.692,98,0.604938272
+"Los Angeles Dodgers","1998",62.806667,83,0.512345679
+"Los Angeles Dodgers","1999",71.115786,77,0.475308642
+"Los Angeles Dodgers","2000",88.124286,86,0.530864198
+"Los Angeles Dodgers","2001",108.980952,86,0.530864198
+"Los Angeles Dodgers","2002",94.850952,92,0.567901235
+"Los Angeles Dodgers","2003",105.87262,85,0.524691358
+"Los Angeles Dodgers","2004",89.694342,93,0.574074074
+"Los Angeles Dodgers","2005",81.0295,71,0.438271605
+"Los Angeles Dodgers","2006",98.447187,88,0.543209877
+"Los Angeles Dodgers","2007",108.454524,82,0.50617284
+"Los Angeles Dodgers","2008",118.588536,84,0.518518519
+"Los Angeles Dodgers","2009",100.458101,95,0.586419753
+"Los Angeles Dodgers","2010",94.945517,80,0.49382716
+"Los Angeles Dodgers","2011",103.78899,82,0.50931677
+"Los Angeles Dodgers","2012",95.143575,86,0.530864198
+"Los Angeles Dodgers","2013",216.597577,92,0.567901235
+"Los Angeles Dodgers","2014",235.295219,94,0.580246914
+"Miami Marlins","1998",15.141,54,0.333333333
+"Miami Marlins","1999",15.15,64,0.395061728
+"Miami Marlins","2000",20.072,79,0.49068323
+"Miami Marlins","2001",35.504167,76,0.469135802
+"Miami Marlins","2002",41.979917,79,0.487654321
+"Miami Marlins","2003",49.05,91,0.561728395
+"Miami Marlins","2004",42.118042,83,0.512345679
+"Miami Marlins","2005",60.375961,83,0.512345679
+"Miami Marlins","2006",14.9985,78,0.481481481
+"Miami Marlins","2007",30.507,71,0.438271605
+"Miami Marlins","2008",21.8115,84,0.52173913
+"Miami Marlins","2009",36.814,87,0.537037037
+"Miami Marlins","2010",55.6415,80,0.49382716
+"Miami Marlins","2011",56.944,72,0.444444444
+"Miami Marlins","2012",118.078,69,0.425925926
+"Miami Marlins","2013",36.3419,62,0.382716049
+"Miami Marlins","2014",47.5654,77,0.475308642
+"Milwaukee Brewers","1998",31.897903,74,0.456790123
+"Milwaukee Brewers","1999",42.927395,74,0.459627329
+"Milwaukee Brewers","2000",36.505333,73,0.450617284
+"Milwaukee Brewers","2001",43.089333,68,0.419753086
+"Milwaukee Brewers","2002",50.287833,56,0.345679012
+"Milwaukee Brewers","2003",40.627,68,0.419753086
+"Milwaukee Brewers","2004",27.5185,67,0.416149068
+"Milwaukee Brewers","2005",40.234833,81,0.5
+"Milwaukee Brewers","2006",57.568333,75,0.462962963
+"Milwaukee Brewers","2007",70.9865,83,0.512345679
+"Milwaukee Brewers","2008",80.937499,90,0.555555556
+"Milwaukee Brewers","2009",80.257502,80,0.49382716
+"Milwaukee Brewers","2010",81.108279,77,0.475308642
+"Milwaukee Brewers","2011",85.497333,96,0.592592593
+"Milwaukee Brewers","2012",97.653944,83,0.512345679
+"Milwaukee Brewers","2013",82.976944,74,0.456790123
+"Milwaukee Brewers","2014",103.844806,82,0.50617284
+"Minnesota Twins","1998",24.5275,70,0.432098765
+"Minnesota Twins","1999",16.345,63,0.39375
+"Minnesota Twins","2000",16.5195,69,0.425925926
+"Minnesota Twins","2001",24.35,85,0.524691358
+"Minnesota Twins","2002",40.225,94,0.583850932
+"Minnesota Twins","2003",55.505,90,0.555555556
+"Minnesota Twins","2004",53.585,92,0.567901235
+"Minnesota Twins","2005",56.615,83,0.512345679
+"Minnesota Twins","2006",63.396006,96,0.592592593
+"Minnesota Twins","2007",71.4395,79,0.487654321
+"Minnesota Twins","2008",56.932766,88,0.539877301
+"Minnesota Twins","2009",65.299267,87,0.533742331
+"Minnesota Twins","2010",97.559167,94,0.580246914
+"Minnesota Twins","2011",112.737,63,0.388888889
+"Minnesota Twins","2012",94.085,66,0.407407407
+"Minnesota Twins","2013",75.8025,66,0.407407407
+"Minnesota Twins","2014",85.7765,70,0.432098765
+"New York Mets","1998",58.660665,88,0.543209877
+"New York Mets","1999",71.506427,97,0.595092025
+"New York Mets","2000",79.509776,94,0.580246914
+"New York Mets","2001",93.174428,82,0.50617284
+"New York Mets","2002",94.633593,75,0.465838509
+"New York Mets","2003",117.176429,66,0.409937888
+"New York Mets","2004",100.629303,71,0.438271605
+"New York Mets","2005",104.770139,83,0.512345679
+"New York Mets","2006",101.084963,97,0.598765432
+"New York Mets","2007",115.231663,88,0.543209877
+"New York Mets","2008",137.793376,89,0.549382716
+"New York Mets","2009",135.773988,70,0.432098765
+"New York Mets","2010",132.701445,79,0.487654321
+"New York Mets","2011",120.14731,77,0.475308642
+"New York Mets","2012",93.353983,74,0.456790123
+"New York Mets","2013",73.396649,74,0.456790123
+"New York Mets","2014",89.051758,79,0.487654321
+"New York Yankees","1998",65.663698,114,0.703703704
+"New York Yankees","1999",88.180712,98,0.604938272
+"New York Yankees","2000",92.53826,87,0.540372671
+"New York Yankees","2001",109.791893,95,0.59375
+"New York Yankees","2002",125.928583,103,0.639751553
+"New York Yankees","2003",152.749814,101,0.62345679
+"New York Yankees","2004",182.835513,101,0.62345679
+"New York Yankees","2005",205.938439,95,0.586419753
+"New York Yankees","2006",194.663079,97,0.598765432
+"New York Yankees","2007",189.639045,94,0.580246914
+"New York Yankees","2008",209.081577,89,0.549382716
+"New York Yankees","2009",201.449289,103,0.635802469
+"New York Yankees","2010",206.333389,95,0.586419753
+"New York Yankees","2011",201.68903,97,0.598765432
+"New York Yankees","2012",197.962289,95,0.586419753
+"New York Yankees","2013",228.83549,85,0.524691358
+"New York Yankees","2014",203.812506,84,0.518518519
+"Oakland Athletics","1998",22.4635,74,0.456790123
+"Oakland Athletics","1999",24.175333,87,0.537037037
+"Oakland Athletics","2000",31.971333,91,0.565217391
+"Oakland Athletics","2001",33.81075,102,0.62962963
+"Oakland Athletics","2002",39.679746,103,0.635802469
+"Oakland Athletics","2003",50.260834,96,0.592592593
+"Oakland Athletics","2004",59.825167,91,0.561728395
+"Oakland Athletics","2005",55.869262,88,0.543209877
+"Oakland Athletics","2006",62.243079,93,0.574074074
+"Oakland Athletics","2007",79.36694,76,0.469135802
+"Oakland Athletics","2008",47.967126,75,0.465838509
+"Oakland Athletics","2009",62.31,75,0.462962963
+"Oakland Athletics","2010",51.6549,81,0.5
+"Oakland Athletics","2011",66.5365,74,0.456790123
+"Oakland Athletics","2012",55.3725,94,0.580246914
+"Oakland Athletics","2013",60.6645,96,0.592592593
+"Oakland Athletics","2014",83.4014,88,0.543209877
+"Philadelphia Phillies","1998",28.6225,75,0.462962963
+"Philadelphia Phillies","1999",30.568167,77,0.475308642
+"Philadelphia Phillies","2000",47.308,65,0.401234568
+"Philadelphia Phillies","2001",41.664167,86,0.530864198
+"Philadelphia Phillies","2002",57.955,80,0.49689441
+"Philadelphia Phillies","2003",70.78,86,0.530864198
+"Philadelphia Phillies","2004",93.219167,86,0.530864198
+"Philadelphia Phillies","2005",95.337908,88,0.543209877
+"Philadelphia Phillies","2006",88.273333,85,0.524691358
+"Philadelphia Phillies","2007",89.428213,89,0.549382716
+"Philadelphia Phillies","2008",98.26988,92,0.567901235
+"Philadelphia Phillies","2009",113.004048,93,0.574074074
+"Philadelphia Phillies","2010",141.927381,97,0.598765432
+"Philadelphia Phillies","2011",172.976381,102,0.62962963
+"Philadelphia Phillies","2012",174.538938,81,0.5
+"Philadelphia Phillies","2013",165.385714,73,0.450617284
+"Philadelphia Phillies","2014",180.052723,73,0.450617284
+"Pittsburgh Pirates","1998",13.695,69,0.425925926
+"Pittsburgh Pirates","1999",24.167667,78,0.48447205
+"Pittsburgh Pirates","2000",28.928333,69,0.425925926
+"Pittsburgh Pirates","2001",52.698333,62,0.382716049
+"Pittsburgh Pirates","2002",42.323598,72,0.447204969
+"Pittsburgh Pirates","2003",54.812429,75,0.462962963
+"Pittsburgh Pirates","2004",32.227929,72,0.447204969
+"Pittsburgh Pirates","2005",38.138,67,0.413580247
+"Pittsburgh Pirates","2006",46.71775,67,0.413580247
+"Pittsburgh Pirates","2007",38.537833,68,0.419753086
+"Pittsburgh Pirates","2008",48.689783,67,0.413580247
+"Pittsburgh Pirates","2009",48.743,62,0.385093168
+"Pittsburgh Pirates","2010",34.943,57,0.351851852
+"Pittsburgh Pirates","2011",46.047,72,0.444444444
+"Pittsburgh Pirates","2012",63.431999,79,0.487654321
+"Pittsburgh Pirates","2013",79.555,94,0.580246914
+"Pittsburgh Pirates","2014",78.111667,88,0.543209877
+"San Diego Padres","1998",53.066166,98,0.604938272
+"San Diego Padres","1999",45.83218,74,0.456790123
+"San Diego Padres","2000",54.821,76,0.469135802
+"San Diego Padres","2001",38.333117,79,0.487654321
+"San Diego Padres","2002",41.425,66,0.407407407
+"San Diego Padres","2003",47.928,64,0.395061728
+"San Diego Padres","2004",54.639503,87,0.537037037
+"San Diego Padres","2005",62.888192,82,0.50617284
+"San Diego Padres","2006",69.896141,88,0.543209877
+"San Diego Padres","2007",58.110567,89,0.54601227
+"San Diego Padres","2008",73.677616,63,0.388888889
+"San Diego Padres","2009",42.7967,75,0.462962963
+"San Diego Padres","2010",37.7993,90,0.555555556
+"San Diego Padres","2011",45.86914,71,0.438271605
+"San Diego Padres","2012",55.2447,76,0.469135802
+"San Diego Padres","2013",67.1436,76,0.469135802
+"San Diego Padres","2014",90.094196,77,0.475308642
+"San Francisco Giants","1998",48.514715,89,0.54601227
+"San Francisco Giants","1999",45.959557,86,0.530864198
+"San Francisco Giants","2000",53.737826,97,0.598765432
+"San Francisco Giants","2001",63.332667,90,0.555555556
+"San Francisco Giants","2002",78.299835,95,0.590062112
+"San Francisco Giants","2003",82.852167,100,0.621118012
+"San Francisco Giants","2004",82.019167,91,0.561728395
+"San Francisco Giants","2005",89.487842,75,0.462962963
+"San Francisco Giants","2006",90.056419,76,0.472049689
+"San Francisco Giants","2007",90.219056,71,0.438271605
+"San Francisco Giants","2008",76.5945,72,0.444444444
+"San Francisco Giants","2009",82.16145,88,0.543209877
+"San Francisco Giants","2010",97.828833,92,0.567901235
+"San Francisco Giants","2011",118.216333,86,0.530864198
+"San Francisco Giants","2012",117.620683,94,0.580246914
+"San Francisco Giants","2013",140.264334,76,0.469135802
+"San Francisco Giants","2014",154.185878,88,0.543209877
+"Seattle Mariners","1998",43.698136,76,0.472049689
+"Seattle Mariners","1999",44.396336,79,0.487654321
+"Seattle Mariners","2000",58.915,91,0.561728395
+"Seattle Mariners","2001",75.6525,116,0.716049383
+"Seattle Mariners","2002",80.282668,93,0.574074074
+"Seattle Mariners","2003",86.959167,93,0.574074074
+"Seattle Mariners","2004",81.543833,63,0.388888889
+"Seattle Mariners","2005",85.883333,69,0.425925926
+"Seattle Mariners","2006",87.959833,78,0.481481481
+"Seattle Mariners","2007",106.460833,88,0.543209877
+"Seattle Mariners","2008",117.666482,61,0.37654321
+"Seattle Mariners","2009",98.904167,85,0.524691358
+"Seattle Mariners","2010",98.376667,61,0.37654321
+"Seattle Mariners","2011",86.4246,67,0.413580247
+"Seattle Mariners","2012",81.9781,75,0.462962963
+"Seattle Mariners","2013",72.031143,71,0.438271605
+"Seattle Mariners","2014",92.081943,87,0.537037037
+"St. Louis Cardinals","1998",44.090854,83,0.512345679
+"St. Louis Cardinals","1999",46.173195,75,0.465838509
+"St. Louis Cardinals","2000",61.453863,95,0.586419753
+"St. Louis Cardinals","2001",77.270855,93,0.574074074
+"St. Louis Cardinals","2002",74.098267,97,0.598765432
+"St. Louis Cardinals","2003",83.486666,85,0.524691358
+"St. Louis Cardinals","2004",75.633517,105,0.648148148
+"St. Louis Cardinals","2005",93.319842,100,0.617283951
+"St. Louis Cardinals","2006",88.891371,83,0.51552795
+"St. Louis Cardinals","2007",90.286823,78,0.481481481
+"St. Louis Cardinals","2008",99.624449,86,0.530864198
+"St. Louis Cardinals","2009",88.528411,91,0.561728395
+"St. Louis Cardinals","2010",93.540753,86,0.530864198
+"St. Louis Cardinals","2011",105.433572,90,0.555555556
+"St. Louis Cardinals","2012",110.300862,88,0.543209877
+"St. Louis Cardinals","2013",115.222086,97,0.598765432
+"St. Louis Cardinals","2014",111.02036,90,0.555555556
+"Tampa Bay Rays","1998",27.37,63,0.388888889
+"Tampa Bay Rays","1999",38.0275,69,0.425925926
+"Tampa Bay Rays","2000",62.765129,69,0.428571429
+"Tampa Bay Rays","2001",54.951602,62,0.382716049
+"Tampa Bay Rays","2002",34.38,55,0.341614907
+"Tampa Bay Rays","2003",19.63,63,0.388888889
+"Tampa Bay Rays","2004",29.506667,70,0.434782609
+"Tampa Bay Rays","2005",29.893567,67,0.413580247
+"Tampa Bay Rays","2006",35.417967,61,0.37654321
+"Tampa Bay Rays","2007",24.1235,66,0.407407407
+"Tampa Bay Rays","2008",43.820597,97,0.598765432
+"Tampa Bay Rays","2009",63.313035,84,0.518518519
+"Tampa Bay Rays","2010",71.923471,96,0.592592593
+"Tampa Bay Rays","2011",41.932171,91,0.561728395
+"Tampa Bay Rays","2012",64.1735,90,0.555555556
+"Tampa Bay Rays","2013",57.895272,92,0.564417178
+"Tampa Bay Rays","2014",77.062891,77,0.475308642
+"Texas Rangers","1998",60.519595,88,0.543209877
+"Texas Rangers","1999",81.576598,95,0.586419753
+"Texas Rangers","2000",70.795921,71,0.438271605
+"Texas Rangers","2001",88.504421,73,0.450617284
+"Texas Rangers","2002",105.302124,72,0.444444444
+"Texas Rangers","2003",103.491667,71,0.438271605
+"Texas Rangers","2004",54.825973,89,0.549382716
+"Texas Rangers","2005",55.307258,79,0.487654321
+"Texas Rangers","2006",68.228662,80,0.49382716
+"Texas Rangers","2007",68.318675,75,0.462962963
+"Texas Rangers","2008",67.712326,79,0.487654321
+"Texas Rangers","2009",68.646023,87,0.537037037
+"Texas Rangers","2010",55.250545,90,0.555555556
+"Texas Rangers","2011",92.299265,96,0.592592593
+"Texas Rangers","2012",120.510974,93,0.574074074
+"Texas Rangers","2013",114.0901,91,0.558282209
+"Texas Rangers","2014",136.036172,67,0.413580247
+"Toronto Blue Jays","1998",34.1585,88,0.543209877
+"Toronto Blue Jays","1999",48.455333,84,0.518518519
+"Toronto Blue Jays","2000",46.238333,83,0.512345679
+"Toronto Blue Jays","2001",75.7985,80,0.49382716
+"Toronto Blue Jays","2002",76.864333,78,0.481481481
+"Toronto Blue Jays","2003",51.269,86,0.530864198
+"Toronto Blue Jays","2004",50.017,67,0.416149068
+"Toronto Blue Jays","2005",45.3365,80,0.49382716
+"Toronto Blue Jays","2006",71.915,87,0.537037037
+"Toronto Blue Jays","2007",81.9428,83,0.512345679
+"Toronto Blue Jays","2008",97.7939,86,0.530864198
+"Toronto Blue Jays","2009",80.993657,75,0.462962963
+"Toronto Blue Jays","2010",62.689357,85,0.524691358
+"Toronto Blue Jays","2011",62.5178,81,0.5
+"Toronto Blue Jays","2012",75.4892,73,0.450617284
+"Toronto Blue Jays","2013",117.5278,74,0.456790123
+"Toronto Blue Jays","2014",132.6287,83,0.512345679
+"Washington Nationals","1998",8.317,65,0.401234568
+"Washington Nationals","1999",16.413,68,0.419753086
+"Washington Nationals","2000",34.807833,67,0.413580247
+"Washington Nationals","2001",34.7745,68,0.419753086
+"Washington Nationals","2002",38.6705,83,0.512345679
+"Washington Nationals","2003",51.9485,83,0.512345679
+"Washington Nationals","2004",43.1975,67,0.413580247
+"Washington Nationals","2005",48.5815,81,0.5
+"Washington Nationals","2006",63.143,71,0.438271605
+"Washington Nationals","2007",37.3475,73,0.450617284
+"Washington Nationals","2008",54.961,59,0.366459627
+"Washington Nationals","2009",59.328,59,0.364197531
+"Washington Nationals","2010",61.425,69,0.425925926
+"Washington Nationals","2011",63.681929,80,0.49689441
+"Washington Nationals","2012",81.336143,98,0.604938272
+"Washington Nationals","2013",114.056769,86,0.530864198
+"Washington Nationals","2014",134.704437,96,0.592592593
